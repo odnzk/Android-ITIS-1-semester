@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidClass</string>
+    <string name="go_to_second_fragment">SecondFragment</string>
+    <string name="plus">Plus</string>
+    <string name="change">Change</string>
+    <string name="tv_counter">Counter: %1$d</string>
 </resources>
