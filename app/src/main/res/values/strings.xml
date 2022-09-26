@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidClass</string>
+    <string name="btn_navigate_to_second_fragment">Button</string>
+    <string name="ed_phone_hint">Enter your phone number</string>
+    <string name="ed_hint">Enter anything</string>
+    <string name="prefix_phone">+7 (9</string>
 </resources>
