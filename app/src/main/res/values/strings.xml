@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AndroidClass</string>
+    <string name="planets">Planets</string>
+    <string name="planet_image">planet image</string>
 </resources>
