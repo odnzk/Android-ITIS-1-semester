@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/item_artist"
+        layout="@layout/item_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_more"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/button_more_about_playlist"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_more_vert_24"
+        app:layout_constraintBottom_toBottomOf="@id/item_artist"
+        app:layout_constraintEnd_toEndOf="@id/item_artist"
+        app:layout_constraintTop_toTopOf="@id/item_artist" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
