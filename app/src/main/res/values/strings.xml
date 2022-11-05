@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidClass</string>
+    <string name="first">First</string>
+    <string name="third">Third</string>
+    <string name="second">Second</string>
+    <string name="enter_text">Enter text</string>
+    <string name="to_b2">To B2</string>
+    <string name="text_from_secondfragment">Text from SecondFragment</string>
+    <string name="a2">A2</string>
+    <string name="a3">A3</string>
+    <string name="a1">A1</string>
+    <string name="c2">C2</string>
+    <string name="c3">C3</string>
+    <string name="dialog">Dialog</string>
 </resources>

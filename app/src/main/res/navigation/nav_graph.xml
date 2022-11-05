@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/graph_a">
+
+
+    <navigation
+        android:id="@+id/graph_b"
+        app:startDestination="@id/secondFragment">
+        <fragment
+            android:id="@+id/secondFragment"
+            android:name="com.example.androidclass.fragments.b.SecondFragment"
+            android:label="fragment_second"
+            tools:layout="@layout/fragment_second">
+            <action
+                android:id="@+id/action_secondFragment_to_secondB2Fragment"
+                app:destination="@id/secondB2Fragment"
+                app:popUpTo="@id/secondFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/secondB2Fragment"
+            android:name="com.example.androidclass.fragments.b.SecondB2Fragment"
+            android:label="fragment_second_b2"
+            tools:layout="@layout/fragment_second_b2" />
+    </navigation>
+
+    <navigation
+        android:id="@+id/graph_a"
+        app:startDestination="@id/firstFragment">
+        <fragment
+            android:id="@+id/firstFragment"
+            android:name="com.example.androidclass.fragments.a.FirstFragment"
+            android:label="fragment_first"
+            tools:layout="@layout/fragment_first">
+            <action
+                android:id="@+id/action_firstFragment_to_firstA2Fragment"
+                app:destination="@id/firstA2Fragment" />
+            <action
+                android:id="@+id/action_firstFragment_to_firstA3Fragment"
+                app:destination="@id/firstA3Fragment"
+                app:popUpTo="@id/firstFragment"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/firstA2Fragment"
+            android:name="com.example.androidclass.fragments.a.FirstA2Fragment"
+            android:label="fragment_first_a2"
+            tools:layout="@layout/fragment_first_a2">
+            <action
+                android:id="@+id/action_firstA2Fragment_to_firstA3Fragment"
+                app:destination="@id/firstA3Fragment"
+                app:popUpTo="@id/firstFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+        <fragment
+            android:id="@+id/firstA3Fragment"
+            android:name="com.example.androidclass.fragments.a.FirstA3Fragment"
+            android:label="fragment_first_a3"
+            tools:layout="@layout/fragment_first_a3">
+            <action
+                android:id="@+id/action_firstA3Fragment_to_firstFragment"
+                app:destination="@id/firstFragment"
+                app:popUpTo="@id/firstFragment"
+                app:popUpToInclusive="false" />
+        </fragment>
+    </navigation>
+
+
+    <navigation
+        android:id="@+id/graph_c"
+        app:startDestination="@id/thirdFragment">
+        <fragment
+            android:id="@+id/thirdFragment"
+            android:name="com.example.androidclass.fragments.c.ThirdFragment"
+            android:label="fragment_third"
+            tools:layout="@layout/fragment_third">
+            <action
+                android:id="@+id/action_thirdFragment_to_thirdC2Fragment"
+                app:destination="@id/thirdC2Fragment" />
+            <action
+                android:id="@+id/action_thirdFragment_to_thirdC3Fragment"
+                app:destination="@id/thirdC3Fragment"
+                app:popUpTo="@id/graph_c"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <fragment
+            android:id="@+id/thirdC2Fragment"
+            android:name="com.example.androidclass.fragments.c.ThirdC2Fragment"
+            android:label="fragment_third_c2"
+            tools:layout="@layout/fragment_third_c2">
+            <action
+                android:id="@+id/action_thirdC2Fragment_to_thirdC3Fragment"
+                app:destination="@id/thirdC3Fragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/thirdC3Fragment"
+            android:name="com.example.androidclass.fragments.c.ThirdC3Fragment"
+            android:label="fragment_third_c3"
+            tools:layout="@layout/fragment_third_c3" />
+    </navigation>
+    <dialog
+        android:id="@+id/bottomDialogFragment"
+        android:name="com.example.androidclass.fragments.dialog.BottomDialogFragment"
+        android:label="fragment_dialog"
+        tools:layout="@layout/fragment_dialog">
+        <action
+            android:id="@+id/action_bottomDialogFragment_to_graph_a"
+            app:destination="@id/graph_a"
+            app:popUpTo="@id/bottomDialogFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_bottomDialogFragment_to_graph_b"
+            app:destination="@id/graph_b"
+            app:popUpTo="@id/bottomDialogFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_bottomDialogFragment_to_graph_c"
+            app:destination="@id/graph_c"
+            app:popUpTo="@id/bottomDialogFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
+
+</navigation>
