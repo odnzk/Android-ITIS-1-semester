@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/graph_a"
+        android:title="@string/first" />
+
+    <item
+        android:id="@+id/graph_b"
+        android:title="@string/second" />
+
+    <item
+        android:id="@+id/graph_c"
+        android:title="@string/third" />
+
+    <item
+        android:id="@+id/bottomDialogFragment"
+        android:title="@string/dialog" />
+</menu>
