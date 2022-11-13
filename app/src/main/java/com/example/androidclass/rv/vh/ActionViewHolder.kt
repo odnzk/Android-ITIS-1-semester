@@ -6,8 +6,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidclass.databinding.ItemActionBinding
 import com.example.androidclass.model.Action
 
-class ActionViewHolder(private val binding: ItemActionBinding) :
+class ActionViewHolder(
+    private val binding: ItemActionBinding,
+    private val onActionClickListener: ((Int) -> Unit)? = null
+) :
     RecyclerView.ViewHolder(binding.root) {
+
+    init {
+        binding.root.setOnClickListener {
+            onActionClickListener?.invoke(adapterPosition)
+        }
+    }
 
     fun bind(action: Action) {
         with(binding) {
@@ -17,9 +26,11 @@ class ActionViewHolder(private val binding: ItemActionBinding) :
     }
 
     companion object {
-        fun create(parent: ViewGroup): ActionViewHolder = ActionViewHolder(
-            ItemActionBinding
-                .inflate(LayoutInflater.from(parent.context), parent, false)
-        )
+        fun create(parent: ViewGroup, onActionClickListener: ((Int) -> Unit)?): ActionViewHolder =
+            ActionViewHolder(
+                ItemActionBinding
+                    .inflate(LayoutInflater.from(parent.context), parent, false),
+                onActionClickListener
+            )
     }
 }

@@ -19,9 +19,10 @@ import com.example.androidclass.rv.vh.SimpleHeaderViewHolder
 class MusicInfoListAdapter :
     ListAdapter<MusicInfo, RecyclerView.ViewHolder>(MusicItemCallback()) {
 
+    var onItemClickListener: ((Int) -> Unit)? = null
     var glide: RequestManager? = null
-    var onPlaylistImageListener: ((String) -> Unit)? = null
-    var onArtistListener: (() -> Unit)? = null
+//    var onPlaylistImageListener: ((String) -> Unit)? = null
+//    var onArtistListener: (() -> Unit)? = null
 
     private val comparator = MusicInfoComparator()
 
@@ -59,12 +60,12 @@ class MusicInfoListAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             R.layout.item_artist -> ArtistViewHolder.create(
-                parent, glide, onArtistListener
+                parent, glide, onItemClickListener
             )
             R.layout.item_playlist -> PlaylistViewHolder.create(
-                parent, glide, onPlaylistImageListener
+                parent, glide, onItemClickListener
             )
-            R.layout.item_action -> ActionViewHolder.create(parent)
+            R.layout.item_action -> ActionViewHolder.create(parent, onItemClickListener)
             else -> SimpleHeaderViewHolder.create(parent)
         }
     }

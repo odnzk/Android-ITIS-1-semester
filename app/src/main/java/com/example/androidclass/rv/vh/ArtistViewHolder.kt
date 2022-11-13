@@ -13,13 +13,13 @@ import com.example.androidclass.rv.helper.load
 class ArtistViewHolder(
     private val binding: ItemArtistBinding,
     private val glide: RequestManager? = null,
-    private val onArtistClickListener: (() -> Unit)? = null
+    private val onArtistClickListener: ((Int) -> Unit)? = null
 ) :
     RecyclerView.ViewHolder(binding.root) {
 
     init {
         binding.root.setOnClickListener {
-            onArtistClickListener?.invoke()
+            onArtistClickListener?.invoke(adapterPosition)
         }
     }
 
@@ -47,7 +47,7 @@ class ArtistViewHolder(
         fun create(
             parent: ViewGroup,
             glide: RequestManager? = null,
-            onArtistListener: (() -> Unit)? = null
+            onArtistListener: ((Int) -> Unit)? = null
         ): ArtistViewHolder = ArtistViewHolder(
             ItemArtistBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false),

@@ -16,9 +16,14 @@ import com.example.androidclass.rv.helper.load
 class PlaylistViewHolder(
     private val binding: ItemPlaylistBinding,
     private val glide: RequestManager? = null,
-    private val onImageViewClickListener: ((String) -> Unit)? = null
+    private val onImageViewClickListener: ((Int) -> Unit)? = null
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    init {
+        binding.root.setOnClickListener {
+            onImageViewClickListener?.invoke(adapterPosition)
+        }
+    }
 
     fun bind(playlist: Playlist) {
         with(binding) {
@@ -37,9 +42,9 @@ class PlaylistViewHolder(
 
                 tvDuration.text = duration.convertDurationToString(itemView.context)
 
-                iv.setOnClickListener {
-                    onImageViewClickListener?.invoke(uuid)
-                }
+//                iv.setOnClickListener {
+//                    onImageViewClickListener?.invoke(uuid)
+//                }
             }
         }
     }
@@ -57,7 +62,7 @@ class PlaylistViewHolder(
         fun create(
             parent: ViewGroup,
             glide: RequestManager? = null,
-            onImageViewClickListener: ((String) -> Unit)? = null
+            onImageViewClickListener: ((Int) -> Unit)? = null
         ): PlaylistViewHolder = PlaylistViewHolder(
             ItemPlaylistBinding
                 .inflate(LayoutInflater.from(parent.context), parent, false),
