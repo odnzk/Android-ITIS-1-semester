@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AndroidClass</string>
+    <string name="enter_notification_title">Enter notification title</string>
+    <string name="enter_content_text">Enter content text</string>
+    <string name="enter_additional_text">Enter additional text</string>
+    <string name="add_additional_text">Add additional text</string>
+    <string name="enter_delay_for_notification">Enter delay for notification</string>
+    <string name="create_notification">Create notification</string>
+    <string name="cancel_notification">Cancel notification</string>
+    <string name="get_time_until_last_reboot">Get time after last reboot</string>
+
+    <string name="default_notification_channel_id">7267815</string>
+    <string name="default_notification_channel_name">Default channel</string>
+    <string name="error_invalid_et">Cannot be null or blanc</string>
+    <string name="error_invalid_seconds">Invalid seconds</string>
 </resources>
