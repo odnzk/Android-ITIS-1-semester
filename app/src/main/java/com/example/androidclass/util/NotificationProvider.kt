@@ -53,7 +53,10 @@ class NotificationProvider(private val context: Context) {
             context, context.getString(R.string.default_notification_channel_id)
         ).setSmallIcon(R.drawable.ic_launcher_foreground).setContentTitle(title)
             .setContentText(contentText).setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-            .setCategory(NotificationCompat.CATEGORY_ALARM).setSound(notifSound)
+            .setCategory(NotificationCompat.CATEGORY_ALARM)
+            .setAutoCancel(true)
+            .setChannelId(context.getString(R.string.default_notification_channel_id))
+            .setSound(notifSound)
             .setContentIntent(pendingIntent).setLights(Color.GREEN, 100, 500).apply {
                 if (additionalText != null) {
                     setStyle(

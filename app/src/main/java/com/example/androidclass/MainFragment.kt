@@ -20,6 +20,7 @@ import com.example.androidclass.util.NotificationProvider
 import com.example.androidclass.util.UiValidator
 import kotlin.math.roundToInt
 
+
 class MainFragment : Fragment(R.layout.fragment_main), MyObserver {
     private var _binding: FragmentMainBinding? = null
     private val binding: FragmentMainBinding get() = _binding!!
@@ -71,7 +72,8 @@ class MainFragment : Fragment(R.layout.fragment_main), MyObserver {
                                 seconds = secondsUntilNotifications,
                                 title = etHeadline.text.toString(),
                                 content = etContentText.text.toString(),
-                                additionalText = if (cbAdditionalText.isChecked) etAdditionalText.text.toString() else null
+                                additionalText = if (cbAdditionalText.isChecked)
+                                    etAdditionalText.text.toString() else null
                             )
                         }
                     } catch (e: NumberFormatException) {
@@ -139,8 +141,6 @@ class MainFragment : Fragment(R.layout.fragment_main), MyObserver {
         const val KEY_NOTIF_TITLE = "notifTitle"
         const val KEY_NOTIF_CONTENT = "notifContent"
         const val KEY_NOTIF_ADDITIONAL_TEXT = "notifAdditionalText"
-
-        private const val REQUEST_CODE_ALARM = 1234
     }
 
 

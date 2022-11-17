@@ -18,7 +18,8 @@ class AlarmHandler(private val context: Context) {
         seconds: Long, id: Int, title: String, content: String, additionalText: String? = null
     ) {
         val flag =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) PendingIntent.FLAG_IMMUTABLE else PendingIntent.FLAG_UPDATE_CURRENT
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                PendingIntent.FLAG_IMMUTABLE else PendingIntent.FLAG_UPDATE_CURRENT
         val intent = Intent(context, AlarmReceiver::class.java).apply {
             putExtra(MainFragment.KEY_NOTIF_ID, id)
             putExtra(MainFragment.KEY_NOTIF_TITLE, title)
@@ -34,7 +35,8 @@ class AlarmHandler(private val context: Context) {
     }
 
     fun cancelAlarm(lastNotificationId: Int) {
-        lastNotificationId?.let { notificationProvider.cancelNotification(lastNotificationId) }
+        notificationProvider
+            .cancelNotification(lastNotificationId)
         val intent = Intent(context, AlarmReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(
             context, 0, intent, PendingIntent.FLAG_IMMUTABLE
