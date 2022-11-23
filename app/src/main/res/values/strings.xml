@@ -2,4 +2,16 @@
     <string name="app_name">AndroidClass</string>
     <string name="firstfragment">FirstFragment</string>
     <string name="secondfragment">SecondFragment</string>
+    <string name="filter_list">Filter list</string>
+    <string name="sort_by">Sort by</string>
+    <string name="id">Id</string>
+    <string name="alphabet">Alphabet</string>
+    <string name="take_picture">Take picture</string>
+    <string name="chooser_title">Choose</string>
+    <string name="error_cannot_find_suitable_apps">Error, cannot find apps for opening URL link</string>
+    <string name="scan_qrcode">Scan qrcode</string>
+    <string name="error_scanning_qrcode">Error scanning qrcode</string>
+    <string name="message_change_in_settings">Please, enable permissions from app\'s settings</string>
+    <string name="message_request_rationale">Please, enable camera to scan qr code</string>
+    <string name="picture_from_camera">picture from camera</string>
 </resources>

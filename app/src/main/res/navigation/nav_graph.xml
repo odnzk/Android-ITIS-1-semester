@@ -9,10 +9,19 @@
         android:id="@+id/firstFragment"
         android:name="com.example.androidclass.fragments.FirstFragment"
         android:label="fragment_first"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_filtersBottomSheetDialog"
+            app:destination="@id/filtersBottomSheetDialog" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.androidclass.fragments.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" />
+    <dialog
+        android:id="@+id/filtersBottomSheetDialog"
+        android:name="com.example.androidclass.dialogs.FiltersBottomSheetDialog"
+        android:label="FiltersBottomSheetDialog"
+        tools:layout="@layout/dialog_filters"/>
 </navigation>
