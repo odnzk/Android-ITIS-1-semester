@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.androidclass.R
-import com.example.androidclass.data.AppDatabase
+import com.example.androidclass.data.db.dao.AppDatabase
 import com.example.androidclass.data.repository.AuthUserRepositoryImpl
 import com.example.androidclass.databinding.FragmentSignupBinding
 import com.example.androidclass.domain.exceptions.EmptyFieldException
@@ -18,6 +18,7 @@ import com.example.androidclass.domain.model.SignUpData
 import com.example.androidclass.domain.repository.AuthRepository
 import com.example.androidclass.presentation.util.Field
 import com.example.androidclass.presentation.util.UserValidator
+import com.example.androidclass.presentation.util.hideKeyboard
 import com.example.androidclass.presentation.util.showSnackbar
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -39,7 +40,8 @@ class SignupFragment : Fragment() {
                 signUp()
             }
             btnToLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_signupFragment2_to_loginFragment)
+                // because we always came from LoginFragment
+                findNavController().popBackStack()
             }
         }
     }
@@ -47,6 +49,7 @@ class SignupFragment : Fragment() {
     private fun signUp() {
         val userValidator = UserValidator()
         with(binding) {
+            root.hideKeyboard()
             val signUpData = SignUpData(etUsername.text.toString(), etPassword.text.toString())
             try {
                 if (userValidator.validate(signUpData)) {

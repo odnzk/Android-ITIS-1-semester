@@ -1,4 +1,4 @@
-package com.example.androidclass.data.util
+package com.example.androidclass.data.security
 
 interface SecurityUtils {
 

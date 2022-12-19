@@ -1,4 +1,4 @@
-package com.example.androidclass.data.util
+package com.example.androidclass.data.security
 
 import android.util.Base64
 import java.security.SecureRandom

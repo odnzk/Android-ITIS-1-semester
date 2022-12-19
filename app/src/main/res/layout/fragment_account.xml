@@ -19,23 +19,29 @@
         android:id="@+id/til_username"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:enabled="false">
+        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/et_username"
+            android:enabled="false"
+            android:hint="@string/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="username"
-            android:hint="@string/username"
             android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_change_username"
+        android:id="@+id/btn_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/change" />
+        android:text="@string/edit" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_exit"

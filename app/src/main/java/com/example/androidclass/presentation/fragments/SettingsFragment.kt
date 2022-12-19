@@ -1,4 +1,12 @@
 package com.example.androidclass.presentation.fragments
 
-class SettingsFragment  {
+import android.os.Bundle
+import androidx.preference.PreferenceFragmentCompat
+import com.example.androidclass.R
+
+class SettingsFragment : PreferenceFragmentCompat() {
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.preferences, rootKey)
+    }
 }

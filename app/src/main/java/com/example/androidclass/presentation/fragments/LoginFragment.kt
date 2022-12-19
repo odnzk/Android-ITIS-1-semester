@@ -8,13 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.androidclass.R
-import com.example.androidclass.data.AppDatabase
+import com.example.androidclass.data.db.dao.AppDatabase
 import com.example.androidclass.data.repository.AppSettingsImpl
 import com.example.androidclass.data.repository.AuthUserRepositoryImpl
 import com.example.androidclass.databinding.FragmentLoginBinding
 import com.example.androidclass.domain.exceptions.AuthException
 import com.example.androidclass.domain.repository.AppSettings
 import com.example.androidclass.domain.repository.AuthRepository
+import com.example.androidclass.presentation.util.hideKeyboard
 import com.example.androidclass.presentation.util.showSnackbar
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -45,12 +46,13 @@ class LoginFragment : Fragment() {
 
     private fun login() {
         with(binding) {
+            root.hideKeyboard()
             lifecycleScope.launch(initAuthExceptionHandler()) {
                 val user =
                     authRepository.login(etUsername.text.toString(), etPassword.text.toString())
                 appSettings.setCurrentAccountId(user.id)
-                findNavController().navigate(R.id.action_loginFragment_to_accountFragment)
             }
+            findNavController().navigate(R.id.action_loginFragment_to_tabsFragment)
         }
     }
 

@@ -1,10 +1,9 @@
-package com.example.androidclass.data
+package com.example.androidclass.data.db.dao
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.androidclass.data.dao.UserDao
 import com.example.androidclass.domain.model.User
 
 @Database(entities = [User::class], version = 1)

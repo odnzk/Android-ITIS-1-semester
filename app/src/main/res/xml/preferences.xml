@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="checkbox1"
+        android:summary="@string/setting_1"
+        android:title="@string/setting_1" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="checkbox2"
+        android:summary="@string/setting_2"
+        android:title="@string/setting_2" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="checkbox3"
+        android:summary="@string/setting_3"
+        android:title="@string/setting_3" />
+</androidx.preference.PreferenceScreen>

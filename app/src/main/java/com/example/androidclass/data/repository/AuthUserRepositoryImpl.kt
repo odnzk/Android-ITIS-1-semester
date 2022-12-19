@@ -1,9 +1,9 @@
 package com.example.androidclass.data.repository
 
 import android.database.sqlite.SQLiteConstraintException
-import com.example.androidclass.data.dao.UserDao
-import com.example.androidclass.data.util.DefaultSecurityUtilsImpl
-import com.example.androidclass.data.util.SecurityUtils
+import com.example.androidclass.data.db.dao.UserDao
+import com.example.androidclass.data.security.DefaultSecurityUtilsImpl
+import com.example.androidclass.data.security.SecurityUtils
 import com.example.androidclass.domain.exceptions.AuthException
 import com.example.androidclass.domain.exceptions.PasswordMismatchException
 import com.example.androidclass.domain.exceptions.StorageException
@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 class AuthUserRepositoryImpl(private val dao: UserDao) : AuthRepository {
     private val securityUtils: SecurityUtils = DefaultSecurityUtilsImpl()
 
-    @kotlin.jvm.Throws(UserAlreadyExistsException::class)
+    @Throws(UserAlreadyExistsException::class)
     override suspend fun signUp(signUpData: SignUpData): Long {
         try {
             val salt = securityUtils.generateSalt()
@@ -36,7 +36,7 @@ class AuthUserRepositoryImpl(private val dao: UserDao) : AuthRepository {
         }
     }
 
-    @kotlin.jvm.Throws(AuthException::class, PasswordMismatchException::class)
+    @Throws(AuthException::class, PasswordMismatchException::class)
     override suspend fun login(username: String, password: String): User {
         val user = dao.getUserByUsername(username) ?: throw AuthException()
         val salt = securityUtils.stringToBytes(user.salt)
@@ -45,13 +45,28 @@ class AuthUserRepositoryImpl(private val dao: UserDao) : AuthRepository {
         return user
     }
 
-    @kotlin.jvm.Throws(StorageException::class)
+    @Throws(UserAlreadyExistsException::class)
     override suspend fun update(user: User) = withContext(Dispatchers.IO) {
         try {
             dao.update(user)
         } catch (e: SQLiteConstraintException) {
             throw StorageException().apply { initCause(e) }
         }
+    }
+
+    @Throws(UserAlreadyExistsException::class)
+    override suspend fun updateUsername(id: Long, username: String) =
+        withContext(Dispatchers.IO) {
+            try {
+                dao.updateUsername(id, username)
+            } catch (e: SQLiteConstraintException) {
+                throw StorageException().apply { initCause(e) }
+            }
+        }
+
+    @Throws(AuthException::class)
+    override suspend fun getUserById(id: Long): User {
+        return dao.getUserById(id) ?: throw AuthException()
     }
 
 }
