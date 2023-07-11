@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/firstFragment"
-        android:title="@string/firstfragment"
+        android:id="@+id/accountFragment"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="@string/account"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/secondFragment"
-        android:title="@string/secondfragment"
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"
         app:showAsAction="ifRoom" />
-
 
 </menu>
