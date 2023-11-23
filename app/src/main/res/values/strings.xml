@@ -2,4 +2,6 @@
     <string name="app_name">AndroidClass</string>
     <string name="firstfragment">FirstFragment</string>
     <string name="secondfragment">SecondFragment</string>
+    <string name="image">image</string>
+    <string name="preload_images">Preload images</string>
 </resources>
